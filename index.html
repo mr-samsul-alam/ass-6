@@ -10,9 +10,45 @@
 
 </head>
 <body>
+    <section class="container">
+        <!-- Heading and Search Box start -->
+        <div> 
+            <h1 class="text-center my-3 text-info">Welcome To Library ORG</h1>
+            <div class="input-group my-5 w-50 mx-auto">
+                <input id="input-text" type="text" class="form-control" placeholder="Search Your Book" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button onclick="button () " class="btn btn-outline-secondary" type="button">Button</button>
+              </div>
+        </div>
+         <!-- Heading and Search Box End -->
 
 
+
+
+         <!--Error massage part Start  -->
+
+        <div id="error-massage"></div>
+
+        <!--Error massage part End  -->
+
+
+
+
+        <!-- How much book are matched that's namber showing part start -->
+
+        <div id="search-result"></div>
+
+        <!-- How much book are matched showing part end -->
     
+
+        <!-- Searched books are Showing here  -->
+
+        <div id="founded-book" class="row row-cols-1 row-cols-md-3 g-4" >
+                      
+        </div>
+        <!-- Searched books are Showing here  -->
+    </section>
+
+
     <script src="./js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
