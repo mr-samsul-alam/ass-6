@@ -11,7 +11,7 @@ const button = () =>{
   foundBookNamber.textContent = '';
   searchResult.textContent = '';
   const  inputTextvalue = inputText.value
-  document.getElementById('spiner').classList.remove('d-none')
+  spinner.classList.remove('d-none')
   if(inputTextvalue.length === 0){
       errorMassage.innerHTML =
       "<h5 class='text-center text-white p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
@@ -74,10 +74,10 @@ const publishedDate = (date) =>{
 const displaySearchResult =  books =>{
   inputText.value ='';
   showResultNam(books.numFound);
-  const  foundedBooks = books.docs.slice(0,20)
+  const slice = books.docs.slice(0,20)
   spinner.classList.add('d-none');
  ///-----For loop
-  foundedBooks.forEach(book => {
+ slice.forEach(book => {
   
     const div = document.createElement('div')
     div.classList.add('col')
