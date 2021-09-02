@@ -43,7 +43,7 @@ const writerName = (name)=>{
     return 'Author Not Avilable';
   }
   else{
-    return `Author Name:${name.author_name[0]}` ;
+    return `Author:${name.author_name[0]}` ;
   }
 }
 
@@ -53,7 +53,7 @@ const publishName= (nam2) =>{
     return ' Publisher Not Avilable';
   }
   else{
-    return `Publisher Name : ${nam2.publisher}`;
+    return `Publisher: ${nam2.publisher[0]}`;
   }
 }
 
@@ -63,7 +63,7 @@ const publishedDate = (date) =>{
     return 'Publish date Not Avilable'
   }
   else{
-    return `First Publish year: ${date.first_publish_year}`
+    return `First Publish year: ${date.publish_year[0]}`
   }
 }
 
@@ -78,13 +78,13 @@ const displaySearchResult =  books =>{
     const div = document.createElement('div')
     div.classList.add('col')
       div.innerHTML =`
-        <div class="card " style="height: 400px; width: 350px" >
-           <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 mx-auto p-2"   alt="..." >
-           <div class="card-body">
-           <h6 class="card-title">Book Name:${book.title}</h6>
-           <p class="card-title">${writerName(book)}</p>
-           <p class="card-title">${publishName(book)}</p>
-           <p class="card-title">${publishedDate(book) }</p>
+        <div class="card shadow" style="height: 500px; width: 350px" >
+           <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 mx-auto d-flex p-2"   alt="..." >
+           <div class="card-body d-flex flex-column justify-content-center">
+           <h6 class="card-title text-center">Name: ${book.title}</h6>
+           <p class="card-title text-center">${writerName(book)}</p>
+           <p class="card-title text-center">${publishName(book)}</p>
+           <p class="card-title text-center">${publishedDate(book) }</p>
            </div>
        </div>
          `
