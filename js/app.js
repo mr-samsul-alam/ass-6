@@ -29,7 +29,7 @@ const button = () =>{
 const showResultNam = (number) =>{
   if( number === 0){
     errorMassage.innerHTML =
-    "<h5 class='text-center text-white p-3 bg-info'><b>No Result Found</b></h5>";
+    "<h5 class='text-center text-dark p-3 bg-info'><b>No Result Found</b></h5>";
   }
   else{
     foundBookNamber.innerHTML =`
