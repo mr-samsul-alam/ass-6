@@ -55,7 +55,7 @@ const publishName= (namber) =>{
     return ' Publisher Details Not Available';
   }
   else{
-    return `Publishd by ${namber.publisher[0]}`;
+    return `Published by ${namber.publisher[0]}`;
   }
 }
 
