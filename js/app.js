@@ -74,10 +74,10 @@ const publishedDate = (date) =>{
 const displaySearchResult =  books =>{
   inputText.value ='';
   showResultNam(books.numFound);
-  const slice = books.docs.slice(0,20)
+  const  foundedBooks = books.docs.slice(0,20)
   spinner.classList.add('d-none');
  ///-----For loop
- slice.forEach(book => {
+  foundedBooks.forEach(book => {
   
     const div = document.createElement('div')
     div.classList.add('col')
