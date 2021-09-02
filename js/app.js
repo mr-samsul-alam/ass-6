@@ -42,7 +42,7 @@ const showResultNam = (number) =>{
 // --- Function:  Writer name
 const writerName = (name)=>{
   if(name.author_name === undefined){
-    return 'Author Not Avilable';
+    return 'Author Name Not Available';
   }
   else{
     return `Author: ${name.author_name[0]}` ;
@@ -52,7 +52,7 @@ const writerName = (name)=>{
 // --- Function:  Publisher name
 const publishName= (namber) =>{
   if(namber.publisher === undefined){
-    return ' Publisher Not Avilable';
+    return ' Publisher Details Not Available';
   }
   else{
     return `Publisher: ${namber.publisher[0]}`;
@@ -62,10 +62,10 @@ const publishName= (namber) =>{
  // --- Function:  Publish Year
 const publishedDate = (date) =>{
   if(date.first_publish_year === undefined){
-    return 'Publish date Not Avilable'
+    return 'First Publish Year Not Avilable'
   }
   else{
-    return `First Publish year: ${date.publish_year[0]}`
+    return `First Publish Year: ${date.publish_year[0]}`
   }
 }
 
