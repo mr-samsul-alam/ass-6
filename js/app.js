@@ -12,10 +12,9 @@ const button = () =>{
   searchResult.textContent = '';
   const  inputTextvalue = inputText.value
   document.getElementById('spiner').classList.remove('d-none')
-  console.log(inputTextvalue);
   if(inputTextvalue.length === 0){
       errorMassage.innerHTML =
-      "<h5 class='text-center p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
+      "<h5 class='text-center text-white p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
       spinner.classList.add('d-none')
   }
   else{
@@ -27,14 +26,14 @@ const button = () =>{
 }
 
  // --- Function: Show Result's Number of Matched 
-const showResultNam = (num) =>{
-  if( num === 0){
+const showResultNam = (number) =>{
+  if( number === 0){
     errorMassage.innerHTML =
     "<h5 class='text-center p-3 bg-info'><b>No Result Found</b></h5>";
   }
   else{
     foundBookNamber.innerHTML =`
-    <h4 class='text-center p-3 m-3 bg-info'>${num} result Found</h4>
+    <h4 class='text-center p-3 m-3 bg-info'>${number} result Found</h4>
    
     `
   }
@@ -51,12 +50,12 @@ const writerName = (name)=>{
 }
 
 // --- Function:  Publisher name
-const publishName= (nam2) =>{
-  if(nam2.publisher === undefined){
+const publishName= (namber) =>{
+  if(namber.publisher === undefined){
     return ' Publisher Not Avilable';
   }
   else{
-    return `Publisher: ${nam2.publisher[0]}`;
+    return `Publisher: ${namber.publisher[0]}`;
   }
 }
 
@@ -94,7 +93,6 @@ const displaySearchResult =  books =>{
        </div>
          `
     searchResult.appendChild(div);
- });
- console.log('finised')  
+ });  
 }
  
