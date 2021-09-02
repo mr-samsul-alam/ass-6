@@ -10,10 +10,12 @@ const button = () =>{
   foundBookNamber.textContent = '';
   searchResult.textContent = '';
   const  inputTextvalue = inputText.value
+  document.getElementById('spiner').classList.remove('d-none')
   console.log(inputTextvalue);
   if(inputTextvalue.length === 0){
       errorMassage.innerHTML =
       "<h5 class='text-center p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
+      document.getElementById('spiner').classList.add('d-none')
   }
   else{
       const url = `https://openlibrary.org/search.json?q=${inputTextvalue}`
@@ -43,7 +45,7 @@ const writerName = (name)=>{
     return 'Author Not Avilable';
   }
   else{
-    return `Author:${name.author_name[0]}` ;
+    return `Author: ${name.author_name[0]}` ;
   }
 }
 
@@ -72,9 +74,11 @@ const publishedDate = (date) =>{
 const displaySearchResult =  books =>{
   inputText.value ='';
   showResultNam(books.numFound);
+  const slice = books.docs.slice(0,20)
+  document.getElementById('spiner').classList.add('d-none');
  ///-----For loop
-    books.docs.forEach(book => {
-    console.log(book)
+ slice.forEach(book => {
+  
     const div = document.createElement('div')
     div.classList.add('col')
       div.innerHTML =`
