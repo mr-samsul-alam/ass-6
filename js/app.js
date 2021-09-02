@@ -1,6 +1,6 @@
 const inputText = document.getElementById('input-text')
 const errorMassage = document.getElementById('error-massage');
-const foundBook = document.getElementById('founded-book');
+const foundBookNamber = document.getElementById('founded-book-namber');
 const searchResult = document.getElementById('search-result');
 
 const button = () =>{
@@ -16,20 +16,26 @@ const button = () =>{
         fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data))
+        inputText.value ='';
+        errorMassage.textContent ='';
+        foundBookNamber.textContent = '';
+        searchResult.textContent = '';
+
         
     
     }
 }
 const displaySearchResult =  books =>{
-
+// --- how boopk founded
   const showResultNam = (num) =>{
     if( num === 0){
-      document.getElementById("error-massage").innerHTML =
-      "<h5 class='text-center p-3 bg-danger'><b>Please enter a  book Nameeew4444...</b></h5>";
+      errorMassage.innerHTML =
+      "<h5 class='text-center p-3 bg-info'><b>No Result Found</b></h5>";
     }
     else{
-      document.getElementById('search-result-num').innerHTML =`
-      ${num}result Found
+      foundBookNamber.innerHTML =`
+      <h4 class='text-center p-3 bg-info'>${num}result Found</h4>
+     
       `
     }
    
@@ -69,7 +75,7 @@ const displaySearchResult =  books =>{
             return `First Publish year: ${date.first_publish_year}`
           }
         }
-            const foundedBook =  document.getElementById('founded-book')
+            // const searchResult = document.getElementById('search-result');
             //  foundedBook.textContent ='';
          const div = document.createElement('div')
          div.classList.add('col')
@@ -85,7 +91,7 @@ const displaySearchResult =  books =>{
        </div>
          `
          
-         foundedBook.appendChild(div);
+         searchResult.appendChild(div);
 
     
       
