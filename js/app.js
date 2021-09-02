@@ -2,6 +2,7 @@ const inputText = document.getElementById('input-text');
 const errorMassage = document.getElementById('error-massage');
 const foundBookNamber = document.getElementById('founded-book-namber');
 const searchResult = document.getElementById('search-result');
+const spinner = document.getElementById('spiner')
 
 //Function: After click button this  will work 
 
@@ -15,7 +16,7 @@ const button = () =>{
   if(inputTextvalue.length === 0){
       errorMassage.innerHTML =
       "<h5 class='text-center p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
-      document.getElementById('spiner').classList.add('d-none')
+      spinner.classList.add('d-none')
   }
   else{
       const url = `https://openlibrary.org/search.json?q=${inputTextvalue}`
@@ -75,14 +76,14 @@ const displaySearchResult =  books =>{
   inputText.value ='';
   showResultNam(books.numFound);
   const slice = books.docs.slice(0,20)
-  document.getElementById('spiner').classList.add('d-none');
+  spinner.classList.add('d-none');
  ///-----For loop
  slice.forEach(book => {
   
     const div = document.createElement('div')
     div.classList.add('col')
       div.innerHTML =`
-        <div class="card shadow" style="height: 500px; width: 350px" >
+        <div class="card shadow mx-auto" style="height: 500px; width: 350px" >
            <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 mx-auto d-flex p-2"   alt="..." >
            <div class="card-body d-flex flex-column justify-content-center">
            <h6 class="card-title text-center">Name: ${book.title}</h6>
