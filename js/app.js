@@ -45,7 +45,7 @@ const writerName = (name)=>{
     return 'Author Name Not Available';
   }
   else{
-    return `Author: ${name.author_name[0]}` ;
+    return ` By ${name.author_name[0]}` ;
   }
 }
 
@@ -55,17 +55,17 @@ const publishName= (namber) =>{
     return ' Publisher Details Not Available';
   }
   else{
-    return `Publisher: ${namber.publisher[0]}`;
+    return `Publishd by ${namber.publisher[0]}`;
   }
 }
 
  // --- Function:  Publish Year
-const publishedDate = (date) =>{
+const publishYear = (date) =>{
   if(date.first_publish_year === undefined){
     return 'First Publish Year Not Avilable'
   }
   else{
-    return `First Publish Year: ${date.publish_year[0]}`
+    return `First Published in ${date.publish_year[0]}`
   }
 }
 
@@ -85,10 +85,10 @@ const displaySearchResult =  books =>{
         <div class="card shadow mx-auto" style="height: 500px; width: 350px" >
            <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 mx-auto d-flex p-2"   alt="..." >
            <div class="card-body d-flex flex-column justify-content-center">
-           <h6 class="card-title text-center">Name: ${book.title}</h6>
+           <h5 class="card-title text-center ">${book.title}</h5>
            <p class="card-title text-center">${writerName(book)}</p>
            <p class="card-title text-center">${publishName(book)}</p>
-           <p class="card-title text-center">${publishedDate(book) }</p>
+           <p class="card-title text-center">${publishYear(book) }</p>
            </div>
        </div>
          `
