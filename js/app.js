@@ -5,25 +5,24 @@ const searchResult = document.getElementById('search-result');
 
 //Function: After click button this  will work 
 const button = () =>{
-    const  inputTextvalue = inputText.value
-    console.log(inputTextvalue);
-    if(inputTextvalue.length === 0){
+  errorMassage.textContent ='';
+  foundBookNamber.textContent = '';
+  searchResult.textContent = '';
+  const  inputTextvalue = inputText.value
+  console.log(inputTextvalue);
+  if(inputTextvalue.length === 0){
       errorMassage.innerHTML =
       "<h5 class='text-center p-3 bg-danger'><b>Please enter a  book Name...</b></h5>";
-    }
-    else{
-        const url = `https://openlibrary.org/search.json?q=${inputTextvalue}`
-        fetch(url)
-        .then(res => res.json())
-        .then(data => displaySearchResult(data))
-        
-        errorMassage.textContent ='';
-        foundBookNamber.textContent = '';
-        searchResult.textContent = '';
+  }
+  else{
+      const url = `https://openlibrary.org/search.json?q=${inputTextvalue}`
+      fetch(url)
+      .then(res => res.json())
+      .then(data => displaySearchResult(data))
     }
 }
 
- 
+ // --- Function:  Show Result's Number Matched 
 const showResultNam = (num) =>{
   if( num === 0){
     errorMassage.innerHTML =
@@ -37,7 +36,7 @@ const showResultNam = (num) =>{
   }
  
 }
-
+// --- Function:  Writer name
 const writerName = (name)=>{
   if(name.author_name === undefined){
     return 'Author Not Avilable';
@@ -67,16 +66,15 @@ const publishedDate = (date) =>{
   }
 }
 
-// Function : Display Search Result
-
+//---- Function : Display Search Result in card
 const displaySearchResult =  books =>{
   inputText.value ='';
   showResultNam(books.numFound);
  ///-----For loop
     books.docs.forEach(book => {
-      console.log(book)
-      const div = document.createElement('div')
-      div.classList.add('col')
+    console.log(book)
+    const div = document.createElement('div')
+    div.classList.add('col')
       div.innerHTML =`
         <div class="card " style="height: 400px; width: 350px" >
            <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 mx-auto p-3"   alt="..." >
@@ -88,7 +86,7 @@ const displaySearchResult =  books =>{
            </div>
        </div>
          `
-         searchResult.appendChild(div);
+    searchResult.appendChild(div);
  });
  console.log('finised')  
 }
